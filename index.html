@@ -25,9 +25,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
+
+    <script type="text/javascript">
+        function init() {
+            const video_sam2act = document.getElementById("simulation-menu-video-sam2act");
+            video_sam2act.addEventListener("error", () => {
+                console.log("Error loading video: ", video_sam2act.src);
+            }, true);
+
+            const video_rvt = document.getElementById("simulation-menu-video-rvt");
+            video_rvt.addEventListener("error", () => {
+                console.log("Error loading video: ", video_rvt.src);
+            }, true);
+        }
+
+        function updateTaskVideo() {
+            const task = document.getElementById("simulation-menu-task-name").value;
+
+            const video_sam2act = document.getElementById("simulation-menu-video-sam2act");
+            video_sam2act.src = `static/videos/simulation/sam2act/${task}_fixed.mp4`;;
+            video_sam2act.playbackRate = 1.75;
+            video_sam2act.play();
+
+            const video_rvt = document.getElementById("simulation-menu-video-rvt");
+            video_rvt.src = `static/videos/simulation/rvt/${task}_fixed.mp4`;;
+            video_rvt.playbackRate = 1.75;
+            video_rvt.play();
+        }
+    </script>
+
+
+
 </head>
 
-<body>
+<body onload="init(); updateTaskVideo();">
     <!-- Title / Authors Info -->
     <section class="hero">
         <div  class="hero-body">
@@ -150,102 +181,57 @@
         </div>
     </section>
 
-    <!-- Real World -->
-    <section class="hero is-light is-small">
-        <div class="hero-body">
-            <div class="container">
-                 <div class="column has-text-centered">
-                    <h3 class="title is-5">Simulation Results</h3>
+    <!-- Simulation Results -->
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <h2 class="title">Lorem ipsum dolor sit amet</h2>
+            Task
+            <div class="select is-small">
+                <select id="simulation-menu-task-name" onchange="updateTaskVideo()">
+                    <option value="close_jar" selected="selected">Close jar</option>
+                    <option value="insert_onto_square_peg">Insert peg</option>
+                    <option value="meat_off_grill">Meat off grill</option>
+                    <option value="open_drawer">Open drawer</option>
+                    <option value="place_cups">Place cups</option>
+                    <option value="place_shape_in_shape_sorter">Place shape</option>
+                    <option value="place_wine_at_rack_location">Place wine</option>
+                    <option value="push_buttons">Push buttons</option>
+                    <option value="put_groceries_in_cupboard">Put groceries</option>
+                    <option value="put_item_in_drawer">Item in drawer</option>
+                    <option value="put_money_in_safe">Place money</option>
+                    <option value="reach_and_drag">Reach and drag</option>
+                    <option value="slide_block_to_color_target">Slide block</option>
+                    <option value="stack_blocks">Stack blocks</option>
+                    <option value="stack_cups">Stack cups</option>
+                    <option value="sweep_to_dustpan_of_size">Sweep dustpan</option>
+                    <option value="turn_tap">Turn tap</option>
+                </select>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="columns is-centered">
+                        <div class="column content">
+                            <h2 class="title is-3">SAM2ACT</h2>
+                            <video id="simulation-menu-video-sam2act" muted autoplay loop>
+                                <source src="static/videos/simulation/sam2act/close_jar_fixed.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
                 </div>
-                <div id="results-carousel" class="carousel results-carousel">
-                    <div class="item item-steve">
-                        <video id="steve" autoplay muted loop>
-                            <source src="static/videos/simulation/close_jar_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-fullbody">
-                        <video id="fullbody" autoplay muted loop>
-                            <source src="static/videos/simulation/insert_onto_square_peg_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-shiba">
-                        <video id="shiba" autoplay muted loop>
-                            <source src="static/videos/simulation/meat_off_grill_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-ender">
-                        <video id="ender" autoplay muted loop>
-                            <source src="static/videos/simulation/open_drawer_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/place_cups_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/place_shape_in_shape_sorter_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/place_wine_at_rack_location_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/push_buttons_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/put_groceries_in_cupboard_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/put_item_in_drawer_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/put_money_in_safe_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/reach_and_drag_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/slide_block_to_color_target_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/stack_blocks_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/stack_cups_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/sweep_to_dustpan_of_size_fixed.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-pokemon">
-                        <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/simulation/turn_tap_fixed.mp4" type="video/mp4">
-                        </video>
+
+                <div class="column">
+                    <div class="columns is-centered">
+                        <div class="column content">
+                            <h2 class="title is-3">RVT-2</h2>
+                            <video id="simulation-menu-video-rvt" muted autoplay loop>
+                                <source src="static/videos/simulation/rvt/close_jar_fixed.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 </body>
 </html>
