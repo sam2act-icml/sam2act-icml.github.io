@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+episodes=(
+        "basketball_in_hoop_0_s0"
+        "basketball_in_hoop_0_s1"
+        "basketball_in_hoop_0_s2"
+        "close_box_1_s0"
+        "close_box_1_s1"
+        "close_box_1_s2"
+        "close_laptop_lid_2_s0"
+        "close_laptop_lid_2_s1"
+        "close_laptop_lid_2_s2"
+        "hockey_5_s0"
+        "hockey_5_s1"
+        "hockey_5_s2"
+        "setup_chess_14_s0"
+        "setup_chess_14_s1"
+        "setup_chess_14_s2"
+        "insert_onto_square_peg_6_s0"
+        "insert_onto_square_peg_6_s1"
+        "insert_onto_square_peg_6_s2"
+        "stack_cups_13_s0"
+        "stack_cups_13_s1"
+        "stack_cups_13_s2"
+        "straighten_rope_10_s0"
+        "straighten_rope_10_s1"
+        "straighten_rope_10_s2"
+        "meat_on_grill_8_s0"
+        "meat_on_grill_8_s1"
+        "meat_on_grill_8_s2"
+        "turn_oven_on_12_s0"
+        "turn_oven_on_12_s1"
+        "turn_oven_on_12_s2"
+        "move_hanger_9_s0"
+        "move_hanger_9_s1"
+        "move_hanger_9_s2"
+        "empty_dishwasher_3_s0"
+        "empty_dishwasher_3_s1"
+        "empty_dishwasher_3_s2"
+        "wipe_desk_11_s0"
+        "wipe_desk_11_s1"
+        "wipe_desk_11_s2"
+        "place_wine_at_rack_location_7_s0"
+        "place_wine_at_rack_location_7_s1"
+        "place_wine_at_rack_location_7_s2"
+        "get_ice_from_fridge_4_s0"
+        "get_ice_from_fridge_4_s1"
+        "get_ice_from_fridge_4_s2"
+)
+
+for episode in "${episodes[@]}"
+do
+    echo "Processing video: ${episode}"
+    if [ ! -f "${episode}.mp4" ]; then
+        echo "Video ${episode}.mp4 does not exists"
+    else
+        ffmpeg -i "${episode}.mp4" -c:v libx264 -preset medium -crf 23 -c:a aac -b:a 128k "${episode}_fixed.mp4"
+    fi
+    
+done
