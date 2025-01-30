@@ -65,15 +65,16 @@
         }
 
         function updateComparisonVideo() {
+            const task = document.getElementById("comparison-menu-task-name").value;
             const episode = document.getElementById("comparison-menu-episode-name").value;
 
             const video_sam2act = document.getElementById("comparison-menu-video-sam2act");
-            video_sam2act.src = `static/videos/comparison/vid_sam2act_in_distribution_${episode}.mp4`;
+            video_sam2act.src = `static/videos/comparison/${task}/vid_sam2act_in_distribution_${episode}.mp4`;
             video_sam2act.playbackRate = 1.75;
             video_sam2act.play();
 
             const video_rvt2 = document.getElementById("comparison-menu-video-rvt2");
-            video_rvt2.src = `static/videos/comparison/vid_rvt2_in_distribution_${episode}.mp4`;
+            video_rvt2.src = `static/videos/comparison/${task}/vid_rvt2_in_distribution_${episode}.mp4`;
             video_rvt2.playbackRate = 1.75;
             video_rvt2.play();
         }
@@ -270,6 +271,13 @@
     <section class="section">
         <div class="container is-max-widescreen">
             <h2 class="title">Lorem ipsum dolor sit amet</h2>
+            Task
+            <div class="select is-small">
+                <select id="comparison-menu-task-name" onchange="updateComparisonVideo()">
+                    <option value="turn_lamp" selected="selected">Turn lamp</option>
+                    <option value="push_buttons">Push buttons</option>
+                </select>
+            </div>
             Episode
             <div class="select is-small">
                 <select id="comparison-menu-episode-name" onchange="updateComparisonVideo()">
@@ -284,7 +292,7 @@
                         <div class="column content">
                             <h2 class="title is-3">SAM2ACT</h2>
                             <video id="comparison-menu-video-sam2act" muted autoplay loop>
-                                <source src="static/videos/comparison/vid_sam2act_in_distribution_ep0.mp4" type="video/mp4">
+                                <source src="static/videos/comparison/turn_lamp/vid_sam2act_in_distribution_ep0.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -295,7 +303,7 @@
                         <div class="column content">
                             <h2 class="title is-3">RVT2</h2>
                             <video id="comparison-menu-video-rvt2" muted autoplay loop>
-                                <source src="static/videos/comparison/vid_rvt2_in_distribution_ep0.mp4" type="video/mp4">
+                                <source src="static/videos/comparison/turn_lamp/vid_rvt2_in_distribution_ep0.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
