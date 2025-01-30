@@ -100,7 +100,7 @@
 
 </head>
 
-<body onload="init(); updateTaskVideo();">
+<body onload="init(); updateTaskVideo(); updateComparisonVideo(); updateMemoryBenchVideo();">
     <!-- Title / Authors Info -->
     <section class="hero">
         <div  class="hero-body">
@@ -218,35 +218,38 @@
     </section>
 
     <section class="section">
-        <div class="columns is-centered has-text-centered">
-            <div class="column">
-                <h2 class="title is-3">Summary</h2>
-                <p>
-                    <figure>
-                        <img src="static/images/img_summary.png" style="max-width: 70%; height: auto;">
-                    </figure>
-                    <div class="content has-text-justified">
-                        SAM2Act, a multi-view robotics transformer that enhances feature representation by integrating multi-resolution upsampling with visual embeddings from large-scale foundation models. Built on the RVT-2 multiview transformer, SAM2Act achieves strong multitask success and generalization. Building on this foundation, we introduce SAM2Act+, which incorporates a memory-based architecture inspired by the SAM2 approach. Using a memory bank and an attention mechanism, SAM2Act + enables episodic recall to solve more complex, spatial memory-dependent manipulation tasks.
-                    </div>
-                </p>
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Summary</h2>
+                    <p>
+                        <figure>
+                            <img src="static/images/img_summary.png" style="max-width: 70%; height: auto;">
+                        </figure>
+                        <div class="content has-text-justified">
+                            SAM2Act, a multi-view robotics transformer that enhances feature representation by integrating multi-resolution upsampling with visual embeddings from large-scale foundation models. Built on the RVT-2 multiview transformer, SAM2Act achieves strong multitask success and generalization. Building on this foundation, we introduce SAM2Act+, which incorporates a memory-based architecture inspired by the SAM2 approach. Using a memory bank and an attention mechanism, SAM2Act + enables episodic recall to solve more complex, spatial memory-dependent manipulation tasks.
+                        </div>
+                    </p>
+                </div>
             </div>
-        </div>
 
-        <div class="content has-text-justified">
-            <h4 class="title is-5">1. Overview of SAM2Act and SAM2Act+ </h4>
-            <figure>
-                <img src="static/images/img_pipeline.png" style="max-width: 70%; height: auto;">
-            </figure>
-            <p>
-                The SAM2Act architecture leverages the SAM2
-image encoder to generate prompt-conditioned, multi-resolution embeddings, fine-tuned with LoRA for efficient adaptation to manipulation
-tasks. A multi-view transformer aligns spatial coordinates with language instructions, while a cascaded multi-resolution upsampling
-mechanism refines feature maps and generates accurate translation heatmaps. SAM2Act+ extends this architecture by incorporating
-memory-based components, including the Memory Encoder, Memory Attention, and Memory Bank, into the coarse branch. These
-components enable memory-driven reasoning by processing historical heatmaps and integrating prior observations, allowing the agent
-to predict actions based on stored contextual information. Observations are reconstructed into point clouds, rendered into three virtual
-images, and lifted into 3D translation points, enabling precise spatial reasoning across both architectures.
+            <div class="content has-text-justified">
+                <h4 class="title is-5">1. Overview of SAM2Act and SAM2Act+ </h4>
+                <figure>
+                    <img src="static/images/img_pipeline.png" style="max-width: 70%; height: auto;">
+                </figure>
+                <p>
+                    The SAM2Act architecture leverages the SAM2
+                    image encoder to generate prompt-conditioned, multi-resolution embeddings, fine-tuned with LoRA for efficient adaptation to manipulation
+                    tasks. A multi-view transformer aligns spatial coordinates with language instructions, while a cascaded multi-resolution upsampling
+                    mechanism refines feature maps and generates accurate translation heatmaps. SAM2Act+ extends this architecture by incorporating
+                    memory-based components, including the Memory Encoder, Memory Attention, and Memory Bank, into the coarse branch. These
+                    components enable memory-driven reasoning by processing historical heatmaps and integrating prior observations, allowing the agent
+                    to predict actions based on stored contextual information. Observations are reconstructed into point clouds, rendered into three virtual
+                    images, and lifted into 3D translation points, enabling precise spatial reasoning across both architectures.
                    <hr>
+               </p>
+            </div>
         </div>
 
         <div class="container is-max-desktop">
@@ -304,7 +307,7 @@ images, and lifted into 3D translation points, enabling precise spatial reasonin
             Baseline
             <div class="select is-small">
                 <select id="simulation-menu-baseline-name" onchange="updateTaskVideo()">
-                    <option value="rvt" selected="selected">RVT</option>
+                    <option value="rvt" selected="selected">RVT2</option>
                     <option value="same">SAME</option>
                 </select>
             </div>
@@ -341,9 +344,9 @@ images, and lifted into 3D translation points, enabling precise spatial reasonin
             Task
             <div class="select is-small">
                 <select id="memorybench-menu-task-name" onchange="updateMemoryBenchVideo()">
-                    <option value="button_and_drawer_simple" selected="selected">Button and drawer</option>
-                    <option value="play_with_cube_sequence">Play with cube</option>
-                    <option value="play_with_two_cubes_sequence">Play with two cubes</option>
+                    <option value="button_and_drawer_simple" selected="selected">Reopen drawer</option>
+                    <option value="play_with_cube_sequence">Put block back</option>
+                    <option value="play_with_two_cubes_sequence">Rearrange block</option>
                 </select>
             </div>
             Method
