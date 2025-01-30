@@ -47,6 +47,11 @@
             video_comparison_rvt2.addEventListener("error", () => {
                 console.log("Error loading video: ", video_comparison_rvt2.src);
             }, true);
+
+            const video_memorybench = document.getElementById("memorybench-menu-video-method");
+            video_memorybench.addEventListener("error", () => {
+                console.log("Error loading video: ", video_memorybench.src);
+            }, true);
         }
 
         function updateTaskVideo() {
@@ -79,6 +84,16 @@
             video_rvt2.play();
         }
 
+        function updateMemoryBenchVideo() {
+            const task = document.getElementById("memorybench-menu-task-name").value;
+            const method = document.getElementById("memorybench-menu-method-name").value;
+            const episode = document.getElementById("memorybench-menu-episode-name").value;
+
+            const video = document.getElementById("memorybench-menu-video-method");
+            video.src = `static/videos/memorybench/${method}/${task}_${episode}_fixed.mp4`;
+            video.playbackRate = 1.75;
+            video.play();
+        }
     </script>
 
 
@@ -129,7 +144,7 @@
                             we introduce <b>SAM2Act</b>, a multi-view robotic transformer that leverages multi-resolution upsampling
                             and visual representations from large-scale foundation models. SAM2Act achieves a state-of-the-art average
                             success rate of <b>86.8% across 18 tasks</b> in the RLBench benchmark, and demonstrates robust generalization
-                            on <i>The Colosseum benchmark</i>, with only a <b>4.3\% performance gap</b> under diverse environmental
+                            on <i>The Colosseum benchmark</i>, with only a <b>4.3% performance gap</b> under diverse environmental
                             perturbations. Building on this foundation, we propose <b>SAM2Act+</b>, a memory-augmented architecture
                             inspired by SAM2, which incorporates a memory bank and attention mechanism for spatial memory. To address
                             the need for evaluating memory-dependent tasks, we introduce <i>MemoryBench</i>, a novel benchmark designed
@@ -202,6 +217,64 @@
         </div>
     </section>
 
+    <section class="section">
+        <div class="columns is-centered has-text-centered">
+            <div class="column">
+                <h2 class="title is-3">Summary</h2>
+                <p>
+                    <figure>
+                        <img src="static/images/img_summary.png" style="max-width: 70%; height: auto;">
+                    </figure>
+                    <div class="content has-text-justified">
+                        SAM2Act, a multi-view robotics transformer that enhances feature representation by integrating multi-resolution upsampling with visual embeddings from large-scale foundation models. Built on the RVT-2 multiview transformer, SAM2Act achieves strong multitask success and generalization. Building on this foundation, we introduce SAM2Act+, which incorporates a memory-based architecture inspired by the SAM2 approach. Using a memory bank and an attention mechanism, SAM2Act + enables episodic recall to solve more complex, spatial memory-dependent manipulation tasks.
+                    </div>
+                </p>
+            </div>
+        </div>
+
+        <div class="content has-text-justified">
+            <h4 class="title is-5">1. Overview of SAM2Act and SAM2Act+ </h4>
+            <figure>
+                <img src="static/images/img_pipeline.png" style="max-width: 70%; height: auto;">
+            </figure>
+            <p>
+                The SAM2Act architecture leverages the SAM2
+image encoder to generate prompt-conditioned, multi-resolution embeddings, fine-tuned with LoRA for efficient adaptation to manipulation
+tasks. A multi-view transformer aligns spatial coordinates with language instructions, while a cascaded multi-resolution upsampling
+mechanism refines feature maps and generates accurate translation heatmaps. SAM2Act+ extends this architecture by incorporating
+memory-based components, including the Memory Encoder, Memory Attention, and Memory Bank, into the coarse branch. These
+components enable memory-driven reasoning by processing historical heatmaps and integrating prior observations, allowing the agent
+to predict actions based on stored contextual information. Observations are reconstructed into point clouds, rendered into three virtual
+images, and lifted into 3D translation points, enabling precise spatial reasoning across both architectures.
+                   <hr>
+        </div>
+
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <h2 class="title is-2">Experiments and Results</h2>
+            </div>
+            <div class="content has-text-centered">
+                </p> 
+            <figure>
+                <img src="static/images/img_results.png"></a>
+            </figure>
+            <p>
+                SAM2Act outperform all other baselines, and achieve highest performance on the RLBench 18 tasks.
+            </p>
+            <hr>
+                <img src="static/images/img_results_colosseum.png">
+                <br>
+                <h6 class="title is-6">
+                    SAM2Act outperform all other baseline, and achieve SoTA performance on the The Colosseum.
+                </h6>
+            </div>
+            <hr>
+        </div>
+
+    </section>
+
+
+
     <!-- Simulation Results -->
     <section class="section">
         <div class="container is-max-widescreen">
@@ -261,6 +334,50 @@
         </div>
     </section>
 
+    <!-- MemoryBench Results -->
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <h2 class="title">Results on MemoryBench</h2>
+            Task
+            <div class="select is-small">
+                <select id="memorybench-menu-task-name" onchange="updateMemoryBenchVideo()">
+                    <option value="button_and_drawer_simple" selected="selected">Button and drawer</option>
+                    <option value="play_with_cube_sequence">Play with cube</option>
+                    <option value="play_with_two_cubes_sequence">Play with two cubes</option>
+                </select>
+            </div>
+            Method
+            <div class="select is-small">
+                <select id="memorybench-menu-method-name" onchange="updateMemoryBenchVideo()">
+                    <option value="sam2act+" selected="selected">SAM2Act+</option>
+                    <option value="sam2act">SAM2Act</option>
+                    <option value="rvt">RVT</option>
+                </select>
+            </div>
+            Episode
+            <div class="select is-small">
+                <select id="memorybench-menu-episode-name" onchange="updateMemoryBenchVideo()">
+                    <option value="s0" selected="selected">Episode 1</option>
+                    <option value="s1">Episode 2</option>
+                    <option value="s2">Episode 3</option>
+                    <option value="s3">Episode 4</option>
+                </select>
+            </div>
+            <br>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="columns is-centered">
+                        <div class="column content">
+                            <video id="memorybench-menu-video-method" muted autoplay loop>
+                                <source src="static/videos/memorybench/sam2act+/button_and_drawer_simple_s0_fixed.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Comparison -->
     <section class="section">
         <div class="container is-max-widescreen">
@@ -270,6 +387,7 @@
                 <select id="comparison-menu-task-name" onchange="updateComparisonVideo()">
                     <option value="turn_lamp" selected="selected">Turn lamp</option>
                     <option value="push_buttons">Push buttons</option>
+                    <option value="stack_cube">Stack cube</option>
                 </select>
             </div>
             Episode
