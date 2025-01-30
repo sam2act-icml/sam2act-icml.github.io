@@ -38,6 +38,15 @@
                 console.log("Error loading video: ", video_baseline.src);
             }, true);
 
+            const video_comparison_sam2act = document.getElementById("comparison-menu-video-sam2act");
+            video_comparison_sam2act.addEventListener("error", () => {
+                console.log("Error loading video: ", video_comparison_sam2act.src);
+            }, true);
+
+            const video_comparison_rvt2 = document.getElementById("comparison-menu-video-rvt2");
+            video_comparison_rvt2.addEventListener("error", () => {
+                console.log("Error loading video: ", video_comparison_rvt2.src);
+            }, true);
         }
 
         function updateTaskVideo() {
@@ -54,6 +63,21 @@
             video_baseline.playbackRate = 1.75;
             video_baseline.play();
         }
+
+        function updateComparisonVideo() {
+            const episode = document.getElementById("comparison-menu-episode-name").value;
+
+            const video_sam2act = document.getElementById("comparison-menu-video-sam2act");
+            video_sam2act.src = `static/videos/comparison/vid_sam2act_in_distribution_${episode}.mp4`;
+            video_sam2act.playbackRate = 1.75;
+            video_sam2act.play();
+
+            const video_rvt2 = document.getElementById("comparison-menu-video-rvt2");
+            video_rvt2.src = `static/videos/comparison/vid_rvt2_in_distribution_${episode}.mp4`;
+            video_rvt2.playbackRate = 1.75;
+            video_rvt2.play();
+        }
+
     </script>
 
 
@@ -234,6 +258,44 @@
                             <h2 class="title is-3">Baseline</h2>
                             <video id="simulation-menu-video-baseline" muted autoplay loop>
                                 <source src="static/videos/simulation/rvt/close_jar_fixed.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <h2 class="title">Lorem ipsum dolor sit amet</h2>
+            Episode
+            <div class="select is-small">
+                <select id="comparison-menu-episode-name" onchange="updateComparisonVideo()">
+                    <option value="ep0" selected="selected">Episode 1</option>
+                    <option value="ep1">Episode 2</option>
+                    <option value="ep2">Episode 3</option>
+                </select>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="columns is-centered">
+                        <div class="column content">
+                            <h2 class="title is-3">SAM2ACT</h2>
+                            <video id="comparison-menu-video-sam2act" muted autoplay loop>
+                                <source src="static/videos/comparison/vid_sam2act_in_distribution_ep0.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="columns is-centered">
+                        <div class="column content">
+                            <h2 class="title is-3">RVT2</h2>
+                            <video id="comparison-menu-video-rvt2" muted autoplay loop>
+                                <source src="static/videos/comparison/vid_rvt2_in_distribution_ep0.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
