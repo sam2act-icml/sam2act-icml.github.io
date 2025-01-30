@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SAM2ACT</title>
-    <meta name="description" content="SAM2ACT">
+    <title>SAM2Act</title>
+    <meta name="description" content="SAM2Act">
     <meta name="keywords" content="Foundation Model, Affordance Prediction">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -94,7 +94,7 @@
                     <div class="column has-text-centered">
                         <h1 class="title is-1 publication-title">
                         <!--<img src="static/images/emoji.png" alt="Emoji" style="width: 45px; height: 45px; vertical-align: middle;">-->
-                            SAM2ACT: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet dui mauris. Interdum et.
+                            SAM2Act: Integrating Visual Foundation Models with A Memory Architecture for Robotic Manipulation
                         </h1>
                         <div class="is-size-5 publication-authors">
                             <div class="column has-text-centered">
@@ -122,24 +122,19 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rutrum pulvinar ex in viverra. Pellentesque
-                            quis gravida ligula, eu pellentesque neque. Mauris malesuada ipsum sit amet nunc auctor venenatis. Proin
-                            nibh velit, bibendum at neque vel, maximus scelerisque mi. Phasellus interdum ipsum vel volutpat auctor.
-                            Nunc quis auctor ex, a finibus neque. In eget arcu aliquam, ornare nisl vel, fermentum ligula. Phasellus
-                            at dolor id metus pharetra tristique ac in velit. Donec rutrum elit sed sem elementum viverra.
-                            
-                            Aenean et quam sed justo laoreet fermentum euismod quis sem. Vestibulum vitae nisl lacinia, hendrerit risus
-                            id, pharetra lectus. Nullam id leo eu lorem viverra dictum. Interdum et malesuada fames ac ante ipsum primis
-                            in faucibus. Nunc gravida vehicula pharetra. Fusce ac diam auctor, consequat sem et, congue risus. Aliquam
-                            consequat velit ex, id aliquam lorem blandit at. Quisque eget lorem mi. Donec blandit varius neque aliquet
-                            elementum. Proin et gravida nibh. Etiam euismod mollis interdum.
-
-                            Integer tincidunt condimentum dui eu dictum. Mauris quis feugiat mauris. Aenean bibendum risus et dui fringilla
-                            viverra. Donec a lacinia metus. Curabitur consectetur auctor tortor vitae blandit. Mauris facilisis massa leo,
-                            congue mollis dui posuere a. Vivamus eu tincidunt ante. Integer est tellus, venenatis in urna id, lobortis hendrerit
-                            est. Suspendisse condimentum neque ut dolor efficitur, quis ultrices odio venenatis. Donec quis dui mauris. Donec
-                            sodales ultrices convallis. Aliquam sit amet ex ornare, iaculis turpis ut, condimentum nulla. Vestibulum gravida
-                            risus diam, in varius felis ultrices sit amet. Proin eu felis ultrices, sollicitudin lorem sit amet, fringilla nisi.
+                            Robotic manipulation systems operating in diverse, dynamic environments must exhibit three critical
+                            abilities: generalization to unseen scenarios, multitask interaction, and spatial memory. While significant
+                            progress has been made in robotic manipulation, existing approaches often fall short in addressing
+                            memory-dependent tasks and generalization to complex environmental variations. To bridge this gap,
+                            we introduce <b>SAM2Act</b>, a multi-view robotic transformer that leverages multi-resolution upsampling
+                            and visual representations from large-scale foundation models. SAM2Act achieves a state-of-the-art average
+                            success rate of <b>86.8% across 18 tasks</b> in the RLBench benchmark, and demonstrates robust generalization
+                            on <i>The Colosseum benchmark</i>, with only a <b>4.3\% performance gap</b> under diverse environmental
+                            perturbations. Building on this foundation, we propose <b>SAM2Act+</b>, a memory-augmented architecture
+                            inspired by SAM2, which incorporates a memory bank and attention mechanism for spatial memory. To address
+                            the need for evaluating memory-dependent tasks, we introduce <i>MemoryBench</i>, a novel benchmark designed
+                            to assess spatial memory and action recall in robotic manipulation. SAM2Act+ achieves <b>competitive performance on MemoryBench</b>,
+                            significantly outperforming existing approaches and pushing the boundaries of memory-enabled robotic systems.
                         </p>
                     </div>
                 </div>
@@ -290,7 +285,7 @@
                 <div class="column">
                     <div class="columns is-centered">
                         <div class="column content">
-                            <h2 class="title is-3">SAM2ACT</h2>
+                            <h2 class="title is-3">SAM2Act</h2>
                             <video id="comparison-menu-video-sam2act" muted autoplay loop>
                                 <source src="static/videos/comparison/turn_lamp/vid_sam2act_in_distribution_ep0.mp4" type="video/mp4">
                             </video>
