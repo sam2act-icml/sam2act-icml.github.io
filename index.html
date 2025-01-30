@@ -33,24 +33,26 @@
                 console.log("Error loading video: ", video_sam2act.src);
             }, true);
 
-            const video_rvt = document.getElementById("simulation-menu-video-rvt");
-            video_rvt.addEventListener("error", () => {
-                console.log("Error loading video: ", video_rvt.src);
+            const video_baseline = document.getElementById("simulation-menu-video-baseline");
+            video_baseline.addEventListener("error", () => {
+                console.log("Error loading video: ", video_baseline.src);
             }, true);
+
         }
 
         function updateTaskVideo() {
             const task = document.getElementById("simulation-menu-task-name").value;
+            const baseline = document.getElementById("simulation-menu-baseline-name").value;
 
             const video_sam2act = document.getElementById("simulation-menu-video-sam2act");
             video_sam2act.src = `static/videos/simulation/sam2act/${task}_fixed.mp4`;;
             video_sam2act.playbackRate = 1.75;
             video_sam2act.play();
 
-            const video_rvt = document.getElementById("simulation-menu-video-rvt");
-            video_rvt.src = `static/videos/simulation/rvt/${task}_fixed.mp4`;;
-            video_rvt.playbackRate = 1.75;
-            video_rvt.play();
+            const video_baseline = document.getElementById("simulation-menu-video-baseline");
+            video_baseline.src = `static/videos/simulation/${baseline}/${task}_fixed.mp4`;
+            video_baseline.playbackRate = 1.75;
+            video_baseline.play();
         }
     </script>
 
@@ -207,11 +209,18 @@
                     <option value="turn_tap">Turn tap</option>
                 </select>
             </div>
+            Baseline
+            <div class="select is-small">
+                <select id="simulation-menu-baseline-name" onchange="updateTaskVideo()">
+                    <option value="rvt" selected="selected">RVT</option>
+                    <option value="same">SAME</option>
+                </select>
+            </div>
             <div class="columns is-centered">
                 <div class="column">
                     <div class="columns is-centered">
                         <div class="column content">
-                            <h2 class="title is-3">SAM2ACT</h2>
+                            <h2 class="title is-3">Ours</h2>
                             <video id="simulation-menu-video-sam2act" muted autoplay loop>
                                 <source src="static/videos/simulation/sam2act/close_jar_fixed.mp4" type="video/mp4">
                             </video>
@@ -222,8 +231,8 @@
                 <div class="column">
                     <div class="columns is-centered">
                         <div class="column content">
-                            <h2 class="title is-3">RVT-2</h2>
-                            <video id="simulation-menu-video-rvt" muted autoplay loop>
+                            <h2 class="title is-3">Baseline</h2>
+                            <video id="simulation-menu-video-baseline" muted autoplay loop>
                                 <source src="static/videos/simulation/rvt/close_jar_fixed.mp4" type="video/mp4">
                             </video>
                         </div>
