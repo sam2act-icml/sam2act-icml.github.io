@@ -156,13 +156,28 @@
             video.playbackRate = 1.75;
             video.play();
         }
+
+        function updateComparisonOutDistVideo() {
+            const task = document.getElementById("outdistribution-menu-task-name").value;
+            const episode = document.getElementById("outdistribution-menu-episode-name").value;
+
+            const video_sam2act = document.getElementById("outdistribution-menu-video-sam2act");
+            video_sam2act.src = `static/videos/out_of_distribution/${task}/vid_sam2act_turn_on_out_${episode}.mp4`;
+            video_sam2act.playbackRate = 1.75;
+            video_sam2act.play();
+
+            const video_rvt2 = document.getElementById("outdistribution-menu-video-rvt2");
+            video_rvt2.src = `static/videos/out_of_distribution/${task}/vid_rvt_turn_on_out_${episode}.mp4`;
+            video_rvt2.playbackRate = 1.75;
+            video_rvt2.play();
+        }
     </script>
 
 
 
 </head>
 
-<body onload="init(); updateTaskVideo(); updateComparisonVideo(); updateMemoryBenchVideo(); updateColosseumVideo();">
+<body onload="init(); updateTaskVideo(); updateComparisonVideo(); updateMemoryBenchVideo(); updateColosseumVideo(); updateComparisonOutDistVideo();">
     <!-- Title / Authors Info -->
     <section class="hero">
         <div  class="hero-body">
@@ -454,7 +469,7 @@
                     <div class="columns is-centered">
                         <div class="column content">
                             <video id="colosseum-menu-video-episode" muted autoplay loop>
-                                <source src="static/videos/colosseum/sam2act+/button_and_drawer_simple_s0_fixed.mp4" type="video/mp4">
+                                <source src="static/videos/colosseum/basketball_in_hoop_0_s0_fixed.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -501,6 +516,52 @@
                             <h2 class="title is-3">RVT2</h2>
                             <video id="comparison-menu-video-rvt2" muted autoplay loop>
                                 <source src="static/videos/comparison/turn_lamp/vid_rvt2_in_distribution_ep0.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Out-of-distribution -->
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <h2 class="title">Out of distribution real-world results</h2>
+            Task
+            <div class="select is-small">
+                <select id="outdistribution-menu-task-name" onchange="updateComparisonOutDistVideo()">
+                    <option value="turn_lamp" selected="selected">Turn lamp</option>
+                    <!--<option value="push_buttons">Push buttons</option>-->
+                    <!--<option value="stack_cube">Stack cube</option>-->
+                </select>
+            </div>
+            Episode
+            <div class="select is-small">
+                <select id="outdistribution-menu-episode-name" onchange="updateComparisonOutDistVideo()">
+                    <option value="ep0" selected="selected">Episode 1</option>
+                    <option value="ep1">Episode 2</option>
+                    <option value="ep2">Episode 3</option>
+                </select>
+            </div>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="columns is-centered">
+                        <div class="column content">
+                            <h2 class="title is-3">SAM2Act</h2>
+                            <video id="outdistribution-menu-video-sam2act" muted autoplay loop>
+                                <source src="static/videos/out_of_distribution/turn_lamp/vid_sam2act_turn_on_out_ep0.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="columns is-centered">
+                        <div class="column content">
+                            <h2 class="title is-3">RVT2</h2>
+                            <video id="outdistribution-menu-video-rvt2" muted autoplay loop>
+                                <source src="static/videos/out_of_distribution/turn_lamp/vid_rvt_turn_on_out_ep0.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
