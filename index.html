@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <!-- <script defer src="./static/js/fontawesome.all.min.js"></script> -->
     <script src="./static/js/bulma-carousel.min.js"></script>
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
@@ -104,26 +105,26 @@
                 "basketball_in_hoop_0_s0",
                 "basketball_in_hoop_0_s1",
                 "basketball_in_hoop_0_s2",
-                "close_box_1_s0",
+                // "close_box_1_s0",
                 "close_box_1_s1",
                 "close_box_1_s2",
                 "close_laptop_lid_2_s0",
                 "close_laptop_lid_2_s1",
-                "close_laptop_lid_2_s2",
-                "hockey_5_s0",
-                "hockey_5_s1",
-                "hockey_5_s2",
-                "setup_chess_14_s0",
-                "setup_chess_14_s1",
-                "setup_chess_14_s2",
+                // "close_laptop_lid_2_s2",
+                // "hockey_5_s0",
+                // "hockey_5_s1",
+                // "hockey_5_s2",
+                // "setup_chess_14_s0",
+                // "setup_chess_14_s1",
+                // "setup_chess_14_s2",
                 "insert_onto_square_peg_6_s0",
                 "insert_onto_square_peg_6_s1",
                 "insert_onto_square_peg_6_s2",
                 "stack_cups_13_s0",
-                "stack_cups_13_s1",
-                "stack_cups_13_s2",
-                "straighten_rope_10_s0",
-                "straighten_rope_10_s1",
+                // "stack_cups_13_s1",
+                // "stack_cups_13_s2",
+                // "straighten_rope_10_s0",
+                // "straighten_rope_10_s1",
                 "straighten_rope_10_s2",
                 "meat_on_grill_8_s0",
                 "meat_on_grill_8_s1",
@@ -131,20 +132,20 @@
                 "turn_oven_on_12_s0",
                 "turn_oven_on_12_s1",
                 "turn_oven_on_12_s2",
-                "move_hanger_9_s0",
-                "move_hanger_9_s1",
+                // "move_hanger_9_s0",
+                // "move_hanger_9_s1",
                 "move_hanger_9_s2",
-                "empty_dishwasher_3_s0",
-                "empty_dishwasher_3_s1",
-                "empty_dishwasher_3_s2",
-                "wipe_desk_11_s0",
-                "wipe_desk_11_s1",
+                // "empty_dishwasher_3_s0",
+                // "empty_dishwasher_3_s1",
+                // "empty_dishwasher_3_s2",
+                // "wipe_desk_11_s0",
+                // "wipe_desk_11_s1",
                 "wipe_desk_11_s2",
                 "place_wine_at_rack_location_7_s0",
                 "place_wine_at_rack_location_7_s1",
                 "place_wine_at_rack_location_7_s2",
-                "get_ice_from_fridge_4_s0",
-                "get_ice_from_fridge_4_s1",
+                // "get_ice_from_fridge_4_s0",
+                // "get_ice_from_fridge_4_s1",
                 "get_ice_from_fridge_4_s2"
             ];
 
@@ -225,19 +226,20 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            Robotic manipulation systems operating in diverse, dynamic environments must exhibit three critical
-                            abilities: generalization to unseen scenarios, multitask interaction, and spatial memory. While significant
-                            progress has been made in robotic manipulation, existing approaches often fall short in addressing
-                            memory-dependent tasks and generalization to complex environmental variations. To bridge this gap,
-                            we introduce <b>SAM2Act</b>, a multi-view robotic transformer that leverages multi-resolution upsampling
-                            and visual representations from large-scale foundation models. SAM2Act achieves a state-of-the-art average
-                            success rate of <b>86.8% across 18 tasks</b> in the RLBench benchmark, and demonstrates robust generalization
-                            on <i>The Colosseum benchmark</i>, with only a <b>4.3% performance gap</b> under diverse environmental
-                            perturbations. Building on this foundation, we propose <b>SAM2Act+</b>, a memory-augmented architecture
-                            inspired by SAM2, which incorporates a memory bank and attention mechanism for spatial memory. To address
-                            the need for evaluating memory-dependent tasks, we introduce <i>MemoryBench</i>, a novel benchmark designed
-                            to assess spatial memory and action recall in robotic manipulation. SAM2Act+ achieves <b>competitive performance on MemoryBench</b>,
-                            significantly outperforming existing approaches and pushing the boundaries of memory-enabled robotic systems.
+                            Robotic manipulation systems operating in diverse, dynamic environments must exhibit three critical 
+                            abilities: multitask interaction, generalization to unseen scenarios, and spatial memory. While significant 
+                            progress has been made in robotic manipulation, existing approaches often fall short in generalization to 
+                            complex environmental variations and addressing memory-dependent tasks. To bridge this gap, we introduce 
+                            <b>SAM2Act</b>, a multi-view robotic transformer-based policy that leverages multi-resolution upsampling 
+                            with visual representations from large-scale foundation model. SAM2Act achieves a state-of-the-art average 
+                            success rate of <b>86.8% across 18 tasks</b> in the RLBench benchmark, and demonstrates robust generalization 
+                            on <i>The Colosseum</i> benchmark, with only a <b>4.3% performance gap</b> under diverse environmental 
+                            perturbations. Building on this foundation, we propose \textbf{SAM2Act+}, a memory-based architecture inspired 
+                            by SAM2, which incorporates a memory bank, an encoder, and an attention mechanism to enhance spatial memory. 
+                            To address the need for evaluating memory-dependent tasks, we introduce <i>MemoryBench</i>, a novel benchmark 
+                            designed to assess spatial memory and action recall in robotic manipulation. SAM2Act+ achieves 
+                            <b>competitive performance on <i>MemoryBench</i></b>, significantly outperforming existing approaches and 
+                            pushing the boundaries of memory-based robotic systems.
                         </p>
                     </div>
                 </div>
@@ -295,9 +297,19 @@
                             <source src="static/videos/memory_tasks/play_with_two_cubes.mp4" type="video/mp4">
                         </video>
                     </div>
-                    <div class="item item-enderman">
-                        <video id="enderman" autoplay muted muted loop playsinline>
+                    <div class="item item-patrick">
+                        <video id="patrick" autoplay muted muted loop playsinline>
                             <source src="static/videos/memory_tasks/button_and_drawer_simple.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item item-fullcuerpo">
+                        <video id="fullcuerpo" autoplay muted muted loop playsinline>
+                            <source src="static/videos/memory_tasks/play_with_cube_sequence.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="item item-shibar">
+                        <video id="shibar" autoplay muted muted loop playsinline>
+                            <source src="static/videos/memory_tasks/play_with_two_cubes.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -312,59 +324,69 @@
                     <h2 class="title is-3">Summary</h2>
                     <p>
                         <figure>
-                            <img src="static/images/img_summary.png" style="max-width: 70%; height: auto;">
+                            <img src="static/images/img_summary.png" style="max-width: 100%; height: auto;">
                         </figure>
+                        <br>
                         <div class="content has-text-justified">
-                            SAM2Act, a multi-view robotics transformer that enhances feature representation by integrating multi-resolution upsampling with visual embeddings from large-scale foundation models. Built on the RVT-2 multiview transformer, SAM2Act achieves strong multitask success and generalization. Building on this foundation, we introduce SAM2Act+, which incorporates a memory-based architecture inspired by the SAM2 approach. Using a memory bank and an attention mechanism, SAM2Act + enables episodic recall to solve more complex, spatial memory-dependent manipulation tasks.
+                            SAM2Act, a multi-view robotics transformer that enhances feature representation by integrating multi-resolution 
+                            upsampling with visual embeddings from large-scale foundation models. Built on the RVT-2 multiview transformer, 
+                            SAM2Act achieves strong multitask success and generalization. Building on this foundation, we introduce SAM2Act+, 
+                            which incorporates a memory-based architecture inspired by the SAM2 approach. Using a memory bank and an attention 
+                            mechanism, SAM2Act + enables episodic recall to solve more complex, spatial memory-dependent manipulation tasks.
                         </div>
                     </p>
                 </div>
             </div>
 
-            <div class="content has-text-justified">
-                <h4 class="title is-5">1. Overview of SAM2Act and SAM2Act+ </h4>
-                <figure>
-                    <img src="static/images/img_pipeline.png" style="max-width: 70%; height: auto;">
-                </figure>
-                <p>
-                    The SAM2Act architecture leverages the SAM2
-                    image encoder to generate prompt-conditioned, multi-resolution embeddings, fine-tuned with LoRA for efficient adaptation to manipulation
-                    tasks. A multi-view transformer aligns spatial coordinates with language instructions, while a cascaded multi-resolution upsampling
-                    mechanism refines feature maps and generates accurate translation heatmaps. SAM2Act+ extends this architecture by incorporating
-                    memory-based components, including the Memory Encoder, Memory Attention, and Memory Bank, into the coarse branch. These
-                    components enable memory-driven reasoning by processing historical heatmaps and integrating prior observations, allowing the agent
-                    to predict actions based on stored contextual information. Observations are reconstructed into point clouds, rendered into three virtual
-                    images, and lifted into 3D translation points, enabling precise spatial reasoning across both architectures.
-                   <hr>
-               </p>
-            </div>
-        </div>
-
-        <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
-                <h2 class="title is-2">Experiments and Results</h2>
+                <div class="column">
+                    <h2 class="title is-3">Overview of SAM2Act and SAM2Act+</h2>
+                    <p>
+                        <figure>
+                            <img src="static/images/img_pipeline.png" style="max-width: 100%; height: auto;">
+                        </figure>
+                        <br>
+                        <div class="content has-text-justified">
+                            The SAM2Act architecture leverages the SAM2 image encoder to generate prompt-conditioned, multi-resolution embeddings, fine-tuned 
+                            with LoRA for efficient adaptation to manipulation tasks. A multi-view transformer aligns spatial coordinates with language 
+                            instructions, while a cascaded multi-resolution upsampling mechanism refines feature maps and generates accurate translation heatmaps. 
+                            SAM2Act+ extends this architecture by incorporating memory-based components, including the Memory Encoder, Memory Attention, and Memory 
+                            Bank, into the coarse branch. These components enable memory-driven reasoning by processing historical heatmaps and integrating prior 
+                            observations, allowing the agent to predict actions based on stored contextual information. Observations are reconstructed into point 
+                            clouds, rendered into three virtual images, and lifted into 3D translation points, enabling precise spatial reasoning across both architectures.
+                        </div>
+                    </p>
+                </div>
             </div>
-            <div class="content has-text-centered">
-                </p> 
-            <figure>
-                <img src="static/images/img_results.png"></a>
-            </figure>
-            <p>
-                SAM2Act outperform all other baselines, and achieve highest performance on the RLBench 18 tasks.
-            </p>
-            <hr>
-                <img src="static/images/img_results_colosseum.png">
-                <br>
-                <h6 class="title is-6">
-                    SAM2Act outperform all other baseline, and achieve SoTA performance on the The Colosseum.
-                </h6>
+
+            <div class="columns is-centered has-text-centered">
+                <div class="column">
+                    <h2 class="title is-3">Experiments and Results</h2>
+                    <p>
+                        <figure>
+                            <img src="static/images/img_results.png"></a>
+                        </figure>
+                        <br>
+                        <p>
+                            SAM2Act outperform all other baselines, and achieve highest performance on the RLBench 18 tasks.
+                        </p>
+                    </p>
+                    <br>
+                    <br>
+                    <p>
+                        <figure>
+                            <img src="static/images/img_results_colosseum.png"></a>
+                        </figure>
+                        <br>
+                        <p>
+                            SAM2Act outperform all other baseline, and achieve SoTA performance on the The Colosseum.
+                        </p>
+                    </p>
+                </div>
             </div>
-            <hr>
         </div>
 
     </section>
-
-
 
     <!-- Simulation Results -->
     <section class="section">
@@ -395,15 +417,17 @@
             Baseline
             <div class="select is-small">
                 <select id="simulation-menu-baseline-name" onchange="updateTaskVideo()">
-                    <option value="rvt" selected="selected">RVT2</option>
-                    <option value="same">SAME</option>
+                    <option value="rvt" selected="selected">RVT-2</option>
+                    <option value="same">SAM-E</option>
                 </select>
             </div>
+            <br>
+            <br>
             <div class="columns is-centered">
                 <div class="column">
                     <div class="columns is-centered">
                         <div class="column content">
-                            <h2 class="title is-3">Ours</h2>
+                            <h2 class="title is-4">Ours</h2>
                             <video id="simulation-menu-video-sam2act" muted autoplay muted loop playsinline>
                                 <source src="static/videos/simulation/sam2act/close_jar_fixed.mp4" type="video/mp4">
                             </video>
@@ -414,9 +438,30 @@
                 <div class="column">
                     <div class="columns is-centered">
                         <div class="column content">
-                            <h2 class="title is-3">Baseline</h2>
+                            <h2 class="title is-4">Baseline</h2>
                             <video id="simulation-menu-video-baseline" muted autoplay muted loop playsinline>
                                 <source src="static/videos/simulation/rvt/close_jar_fixed.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colosseum Results -->
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <h2 class="title">Results on Colosseum</h2>
+            <button onclick="updateColosseumVideo()">Random Episode</button>
+            <br>
+            <br>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="columns is-centered">
+                        <div class="column content">
+                            <video id="colosseum-menu-video-episode" muted autoplay muted loop playsinline>
+                                <source src="static/videos/colosseum/basketball_in_hoop_0_s0_fixed.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -455,6 +500,7 @@
                 </select>
             </div>
             <br>
+            <br>
             <div class="columns is-centered">
                 <div class="column">
                     <div class="columns is-centered">
@@ -469,30 +515,10 @@
         </div>
     </section>
 
-    <!-- Colosseum Results -->
-    <section class="section">
-        <div class="container is-max-widescreen">
-            <h2 class="title">Results on Colosseum</h2>
-            <button onclick="updateColosseumVideo()">Random episode</button>
-            <br>
-            <div class="columns is-centered">
-                <div class="column">
-                    <div class="columns is-centered">
-                        <div class="column content">
-                            <video id="colosseum-menu-video-episode" muted autoplay muted loop playsinline>
-                                <source src="static/videos/colosseum/basketball_in_hoop_0_s0_fixed.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Comparison -->
     <section class="section">
         <div class="container is-max-widescreen">
-            <h2 class="title">In distribution real-world results</h2>
+            <h2 class="title">In-distribution Real-world Results</h2>
             Task
             <div class="select is-small">
                 <select id="comparison-menu-task-name" onchange="updateComparisonVideo()">
@@ -509,11 +535,13 @@
                     <option value="ep2">Episode 3</option>
                 </select>
             </div>
+            <br>
+            <br>
             <div class="columns is-centered">
                 <div class="column">
                     <div class="columns is-centered">
                         <div class="column content">
-                            <h2 class="title is-3">SAM2Act</h2>
+                            <h2 class="title is-4">SAM2Act</h2>
                             <video id="comparison-menu-video-sam2act" muted autoplay muted loop playsinline>
                                 <source src="static/videos/comparison/turn_lamp/vid_sam2act_in_distribution_ep0.mp4" type="video/mp4">
                             </video>
@@ -524,7 +552,7 @@
                 <div class="column">
                     <div class="columns is-centered">
                         <div class="column content">
-                            <h2 class="title is-3">RVT2</h2>
+                            <h2 class="title is-4">RVT-2</h2>
                             <video id="comparison-menu-video-rvt2" muted autoplay muted loop playsinline>
                                 <source src="static/videos/comparison/turn_lamp/vid_rvt2_in_distribution_ep0.mp4" type="video/mp4">
                             </video>
@@ -538,7 +566,7 @@
     <!-- Comparison Out-of-distribution -->
     <section class="section">
         <div class="container is-max-widescreen">
-            <h2 class="title">Out of distribution real-world results</h2>
+            <h2 class="title">Out-distribution Real-world Results</h2>
             Task
             <div class="select is-small">
                 <select id="outdistribution-menu-task-name" onchange="updateComparisonOutDistVideo()">
@@ -555,11 +583,13 @@
                     <option value="ep2">Episode 3</option>
                 </select>
             </div>
+            <br>
+            <br>
             <div class="columns is-centered">
                 <div class="column">
                     <div class="columns is-centered">
                         <div class="column content">
-                            <h2 class="title is-3">SAM2Act</h2>
+                            <h2 class="title is-4">SAM2Act</h2>
                             <video id="outdistribution-menu-video-sam2act" muted autoplay muted loop playsinline>
                                 <source src="static/videos/out_of_distribution/turn_lamp/vid_sam2act_turn_on_out_ep0.mp4" type="video/mp4">
                             </video>
@@ -570,7 +600,7 @@
                 <div class="column">
                     <div class="columns is-centered">
                         <div class="column content">
-                            <h2 class="title is-3">RVT2</h2>
+                            <h2 class="title is-4">RVT-2</h2>
                             <video id="outdistribution-menu-video-rvt2" muted autoplay muted loop playsinline>
                                 <source src="static/videos/out_of_distribution/turn_lamp/vid_rvt_turn_on_out_ep0.mp4" type="video/mp4">
                             </video>
