@@ -27,6 +27,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          padding: 40px;
+          background-color: #F9F9F9;
+        }
+        h1 {
+          text-align: center;
+        }
+        table {
+          margin: auto;
+          border-collapse: collapse;
+          width: 60%;
+          background-color: white;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          border-radius: 8px;
+          overflow: hidden;
+        }
+        th, td {
+          padding: 16px;
+          text-align: center;
+          border-bottom: 1px solid #ddd;
+        }
+        th {
+          background-color: #007ACC;
+          color: white;
+        }
+        tr:hover {
+          background-color: #F1F1F1;
+        }
+    </style>
+
     <script type="text/javascript">
         function init() {
             const video_sam2act = document.getElementById("simulation-menu-video-sam2act");
@@ -461,6 +493,73 @@
             </div>
         </div>
     </section>
+
+    <!-- Simulation Results -->
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <h2 class="title">RLBench 18 Tasks: Model Performance</h2>
+            <table>
+              <tr>
+                <th style="color: white;">Models</th>
+                <th style="color: white;">RLBench 18 Tasks (%)</th>
+              </tr>
+              <tr>
+                <td><b>SAM2Act</b></td>
+                <td><b>86.8</b></td>
+              </tr>
+              <tr>
+                <td>ARP+</td>
+                <td>86.0</td>
+              </tr>
+              <tr>
+                <td>3D-LOTUS</td>
+                <td>83.1</td>
+              </tr>
+              <tr>
+                <td>3D Diffuser Actor</td>
+                <td>81.3</td>
+              </tr>
+              <tr>
+                <td>ACT3D</td>
+                <td>65.0</td>
+              </tr>
+              <tr>
+                <td>PolarNet</td>
+                <td>62.9</td>
+              </tr>
+            </table>
+            <br>
+            <h2 class="title">The COLOSSEUM: Average Decrease Across Perturbations</h2>
+            <table>
+                <tr>
+                  <th style="color: white;">Models</th>
+                  <th style="color: white;">Average Decrease (%)</th>
+                </tr>
+                <tr>
+                  <td><b>SAM2Act</b></td>
+                  <td class="negative"><b>-4.3</b></td>
+                </tr>
+                <tr>
+                  <td>3D Diffuser Actor</td>
+                  <td class="negative">-15.6</td>
+                </tr>
+                <tr>
+                  <td>MVP</td>
+                  <td class="negative">-16.3</td>
+                </tr>
+                <tr>
+                  <td>R3M</td>
+                  <td class="negative">-49.9</td>
+                </tr>
+                <tr>
+                  <td>ACT</td>
+                  <td class="negative">-61.8</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
 
     <!-- Colosseum Results -->
     <section class="section">
