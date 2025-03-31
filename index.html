@@ -90,6 +90,19 @@
             const method = document.getElementById("memorybench-menu-method-name").value;
             const episode = document.getElementById("memorybench-menu-episode-name").value;
 
+            if (method == "openvla") {
+                const episode_elm = document.getElementById("memorybench-menu-episode-name");
+                episode_elm.options[1].disabled = true;
+                episode_elm.options[2].disabled = true;
+                episode_elm.options[3].disabled = true;
+            }
+            else {
+                const episode_elm = document.getElementById("memorybench-menu-episode-name");
+                episode_elm.options[1].disabled = false;
+                episode_elm.options[2].disabled = false;
+                episode_elm.options[3].disabled = false;
+            }
+
             const video = document.getElementById("memorybench-menu-video-method");
             video.src = `static/videos/memorybench/${method}/${task}_${episode}_fixed.mp4`;
             video.playbackRate = 1.75;
@@ -488,6 +501,7 @@
                     <option value="sam2act+" selected="selected">SAM2Act+</option>
                     <option value="sam2act">SAM2Act</option>
                     <option value="rvt">RVT</option>
+                    <option value="openvla">OpenVLA</option>
                 </select>
             </div>
             Episode
