@@ -81,6 +81,11 @@
                 console.log("Error loading video: ", video_comparison_rvt2.src);
             }, true);
 
+            const video_ablation = document.getElementById("ablation-menu-video");
+            video_ablation.addEventListener("error", () => {
+                console.log("Error loading video", video_ablation.src);
+            }, true);
+
             const video_memorybench = document.getElementById("memorybench-menu-video-method");
             video_memorybench.addEventListener("error", () => {
                 console.log("Error loading video: ", video_memorybench.src);
@@ -137,6 +142,15 @@
 
             const video = document.getElementById("memorybench-menu-video-method");
             video.src = `static/videos/memorybench/${method}/${task}_${episode}_fixed.mp4`;
+            video.playbackRate = 1.75;
+            video.play();
+        }
+
+        function updateAblationVideo() {
+            const task = document.getElementById("ablation-menu-task-name").value;
+
+            const video = document.getElementById("ablation-menu-video");
+            video.src = `static/videos/ablation/${task}.mp4`;
             video.playbackRate = 1.75;
             video.play();
         }
@@ -234,7 +248,7 @@
 
 </head>
 
-<body onload="init(); updateTaskVideo(); updateComparisonVideo(); updateMemoryBenchVideo(); updateColosseumVideo(); updateComparisonOutDistVideo();">
+<body onload="init(); updateTaskVideo(); updateComparisonVideo(); updateMemoryBenchVideo(); updateColosseumVideo(); updateComparisonOutDistVideo(); updateAblationVideo();">
     <!-- Title / Authors Info -->
     <section class="hero">
         <div  class="hero-body">
@@ -556,14 +570,45 @@
                   <td class="negative">-61.8</td>
                 </tr>
             </table>
-            <br>
-            <h2 class="title">Ablation studies for Memory v.s. Long-horizon tasks Ablation Studies</h2>
-            <figure>
-                <img src="static/images/img_ablations.png" style="max-width: 100%; height: auto;">
-            </figure>
         </div>
     </section>
 
+    <!-- Ablation Results -->
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <h2 class="title">Ablation studies for Memory v.s. Long-horizon tasks</h2>
+            <h3 class="title">Results</h3>
+            <div class="columns is-centered">
+                <figure>
+                    <img src="static/images/img_ablations.png" style="max-width: 100%; height: auto;">
+                </figure>
+            </div>
+            <br>
+            <br>
+            <h3 class="title">Tasks</h2>
+            <div class="select is-small">
+                <select id="ablation-menu-task-name" onchange="updateAblationVideo()">
+                    <option value="stack_one_block_color" selected="selected">Stack one block</option>
+                    <option value="stack_two_blocks_color">Stack two blocks</option>
+                    <option value="stack_three_blocks_color">Stack three blocks</option>
+                    <option value="stack_four_blocks_color">Stack four blocks</option>
+                </select>
+            </div>
+            <br>
+            <br>
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="columns is-centered">
+                        <div class="column content">
+                            <video id="ablation-menu-video" muted autoplay muted loop playsinline>
+                                <source src="static/videos/ablation/stack_one_block_color.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <!-- Colosseum Results -->
